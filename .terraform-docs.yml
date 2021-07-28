@@ -3,14 +3,14 @@ version: '>= 0.14.0'
 formatter: markdown table
 
 content: |-
-  [![Tests](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
+  [![Tests](https://github.com/netascode/terraform-aci-access-leaf-switch-policy-group/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-access-leaf-switch-policy-group/actions/workflows/test.yml)
 
-  # Terraform ACI Scaffolding Module
+  # Terraform ACI Access Leaf Switch Policy Group Module
 
-  Description
+  Manages ACI Access Leaf Switch Policy Group
 
   Location in GUI:
-  `Tenants` » `XXX`
+  `Fabric` » `Access Policies` » `Switches` » `Leaf Switches` » `Policy Groups`
 
   ## Examples
 

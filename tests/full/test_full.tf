@@ -14,35 +14,38 @@ terraform {
 module "main" {
   source = "../.."
 
-  name        = "ABC"
-  alias       = "ALIAS"
-  description = "DESCR"
+  name                    = "SW-PG1"
+  forwarding_scale_policy = "HIGH-DUAL-STACK"
 }
 
-data "aci_rest" "fvTenant" {
-  dn = "uni/tn-ABC"
+data "aci_rest" "infraAccNodePGrp" {
+  dn = "uni/infra/funcprof/accnodepgrp-${module.main.name}"
 
   depends_on = [module.main]
 }
 
-resource "test_assertions" "fvTenant" {
-  component = "fvTenant"
+resource "test_assertions" "infraAccNodePGrp" {
+  component = "infraAccNodePGrp"
 
   equal "name" {
     description = "name"
-    got         = data.aci_rest.fvTenant.content.name
-    want        = "ABC"
+    got         = data.aci_rest.infraAccNodePGrp.content.name
+    want        = module.main.name
   }
+}
 
-  equal "nameAlias" {
-    description = "nameAlias"
-    got         = data.aci_rest.fvTenant.content.nameAlias
-    want        = "ALIAS"
-  }
+data "aci_rest" "infraRsTopoctrlFwdScaleProfPol" {
+  dn = "${data.aci_rest.infraAccNodePGrp.id}/rstopoctrlFwdScaleProfPol"
 
-  equal "descr" {
-    description = "descr"
-    got         = data.aci_rest.fvTenant.content.descr
-    want        = "DESCR"
+  depends_on = [module.main]
+}
+
+resource "test_assertions" "infraRsTopoctrlFwdScaleProfPol" {
+  component = "infraRsTopoctrlFwdScaleProfPol"
+
+  equal "tnTopoctrlFwdScaleProfilePolName" {
+    description = "tnTopoctrlFwdScaleProfilePolName"
+    got         = data.aci_rest.infraRsTopoctrlFwdScaleProfPol.content.tnTopoctrlFwdScaleProfilePolName
+    want        = "HIGH-DUAL-STACK"
   }
 }
