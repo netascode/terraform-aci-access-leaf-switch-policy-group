@@ -37,8 +37,8 @@ module "aci_access_leaf_switch_policy_group" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Leaf switch policy group name | `string` | n/a | yes |
-| <a name="input_forwarding_scale_policy"></a> [forwarding\_scale\_policy](#input\_forwarding\_scale\_policy) | Forwarding scale policy name | `string` | `""` | no |
+| <a name="input_name"></a> [name](#input\_name) | Leaf switch policy group name. | `string` | n/a | yes |
+| <a name="input_forwarding_scale_policy"></a> [forwarding\_scale\_policy](#input\_forwarding\_scale\_policy) | Forwarding scale policy name. | `string` | `""` | no |
 
 ## Outputs
 

@@ -1,5 +1,5 @@
 variable "name" {
-  description = "Leaf switch policy group name"
+  description = "Leaf switch policy group name."
   type        = string
 
   validation {
@@ -9,7 +9,7 @@ variable "name" {
 }
 
 variable "forwarding_scale_policy" {
-  description = "Forwarding scale policy name"
+  description = "Forwarding scale policy name."
   type        = string
   default     = ""
 
