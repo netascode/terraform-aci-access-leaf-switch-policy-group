@@ -44,8 +44,8 @@ module "aci_access_leaf_switch_policy_group" {
 
 | Name | Description |
 |------|-------------|
-| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `infraAccNodePGrp` object |
-| <a name="output_name"></a> [name](#output\_name) | Leaf switch policy group name |
+| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `infraAccNodePGrp` object. |
+| <a name="output_name"></a> [name](#output\_name) | Leaf switch policy group name. |
 
 ## Resources
 
