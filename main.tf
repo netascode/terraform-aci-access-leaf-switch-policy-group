@@ -7,7 +7,7 @@ resource "aci_rest" "infraAccNodePGrp" {
 }
 
 resource "aci_rest" "infraRsTopoctrlFwdScaleProfPol" {
-  dn         = "${aci_rest.infraAccNodePGrp.id}/rstopoctrlFwdScaleProfPol"
+  dn         = "${aci_rest.infraAccNodePGrp.dn}/rstopoctrlFwdScaleProfPol"
   class_name = "infraRsTopoctrlFwdScaleProfPol"
   content = {
     tnTopoctrlFwdScaleProfilePolName = var.forwarding_scale_policy
