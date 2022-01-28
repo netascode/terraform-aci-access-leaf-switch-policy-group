@@ -5,8 +5,8 @@ terraform {
     }
 
     aci = {
-      source  = "netascode/aci"
-      version = ">=0.2.0"
+      source  = "CiscoDevNet/aci"
+      version = ">=2.0.0"
     }
   }
 }
@@ -17,7 +17,7 @@ module "main" {
   name = "SW-PG1"
 }
 
-data "aci_rest" "infraAccNodePGrp" {
+data "aci_rest_managed" "infraAccNodePGrp" {
   dn = "uni/infra/funcprof/accnodepgrp-${module.main.name}"
 
   depends_on = [module.main]
@@ -28,7 +28,7 @@ resource "test_assertions" "infraAccNodePGrp" {
 
   equal "name" {
     description = "name"
-    got         = data.aci_rest.infraAccNodePGrp.content.name
+    got         = data.aci_rest_managed.infraAccNodePGrp.content.name
     want        = module.main.name
   }
 }
